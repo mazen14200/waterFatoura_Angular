@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  display: -webkit-flex;
+  display: flex;
+  background-color: #2291b3;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 50px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  color:  #ce3535;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  
+}
+nav ul li a{
+  list-style-type: none;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #555353cc;
+  padding: 7px;
+  text-align: center;
+  color: white;
+  
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Water Fatoura</h1>
+  <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+    <h2 >برنامج تسجيل فواتير استهلاك المياه</h2>
+
+
+</header>
+
+<section>
+
+  <!-- هام جدا كور اي صفحة ف المشروع هترن هنا -->
+  <router-outlet></router-outlet>
+
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/WaterFatoura/insert_invoice']">تسجيل فاتورة</a></li>
+      <li><a [routerLink]="['/WaterFatoura/add_subscriper']">تحديث بيانات مشترك</a></li>
+      <li><a [routerLink]="['/WaterFatoura/add_subscription']">تحديث بيانات إشتراك</a></li>
+      <li><a [routerLink]="['/WaterFatoura/add_REType']">تحديث بيانات نوع عقار</a></li>
+      <li>////////////////////</li>
+      <li><a [routerLink]="['/WaterFatoura/invoice']">استفسار عن فاتورة</a></li>
+      <li><a [routerLink]="['/WaterFatoura/subscripers']">تقرير عن المشتركين</a></li>
+      <li><a [routerLink]="['/WaterFatoura/subscriptions']">تقرير عن الإشتراكات</a></li>
+      <li><a [routerLink]="['/WaterFatoura/all_invoices']">تقرير عن الفواتير</a></li>
+      <li>////////////////////</li>
+      <li><a [routerLink]="['/WaterFatoura/log_in']" >خروج</a></li>
+    </ul>
+  </nav>
+
+</section>
+
+<footer>
+  <h5>جميع الحقوق محفوظة لدى م/ مازن عصام @</h5>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,297 @@
+
+<!--
+<ng-container *ngIf="subscriper_new">
+
+</ng-container> -->
+
+<!-- <form #ngForm (ngSubmit)="onSubmit()" >
+<div class="mt-2 me-3 ">
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="Id" name="Id" id="Id" class="label form-label">رقم الهوية</label>
+    </div>
+        <input type="text" placeholder="Enter your ID" name="Id" id="Id" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="name" name="name" id="name" class="label form-label">الأسم</label>
+    </div>
+        <input type="text" placeholder="Enter your name" name="name" id="name" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="City" name="City" id="City" class="label form-label">المدينة</label>
+    </div>
+        <input type="text" placeholder="Enter your City" name="City" id="City" class="form-control" >
+    </div>
+    <div class="mt-4 ms-20">     
+        <button type="submit" class="btn btn-primary ">إضافة</button>
+
+    </div>
+</div>
+-->
+<!--second-->
+<!--second-->
+<!--
+<div class="mt-2 me-3 ">
+    <div class="mt-3">
+        <label for="Area" name="Area" id="Area" class="label form-label">&nbsp;&nbsp; العنوان</label>
+        <input type="text" placeholder="Enter your Area" name="Area" id="Area" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <label for="Mobile" name="Mobile" id="Mobile" class="label form-label">&nbsp;&nbsp; الهاتف</label>
+        <input type="text" placeholder="Enter your Mobile" name="Mobile" id="Mobile" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <label for="Reasons" name="Reasons" id="Reasons" class="label form-label">ملاحظات</label>
+        <input type="text" placeholder="Enter your Reasons" name="Reasons" id="Reasons" class="form-control" >
+    </div>
+</div>
+
+</form> 
+-->
+<ng-container *ngIf="NO_invoice_id_1 ">
+
+    <form id="form" [formGroup]="registerForm" (ngSubmit)="Onsubmit()">
+    <div>
+    <table class="mt-3">
+        <tr>
+            <td>
+                <label  class="label form-label">رقم الفاتورة</label>
+            </td>
+            <td>
+                <input type="text" placeholder=""  class="form-control" [(ngModel)]="NO_invoice_id_1"   formControlName="NO_invoice_id" readonly="readonly" >
+                <span style="color: red;" *ngIf=" NO_invoice_id && NO_invoice_id.invalid && NO_invoice_id.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">التاريخ من</label>
+            </td>
+            <td>
+                <input type="date"  placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.from"   formControlName="from" (change)="on_change_Date()" >
+                <span style="color: red;" *ngIf=" from && from.invalid && from.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">رقم الاشتراك</label>
+            </td>
+            <td>
+                <input type="text" placeholder=""  class="form-control" [(ngModel)]="NO_sh_id_1"   formControlName="no_Subscription"  (change)="onID_sh_Change()">
+                <span style="color: red;" *ngIf=" no_Subscription && no_Subscription.invalid && no_Subscription.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">هوية المشترك</label>
+            </td>
+            <td>
+                <input type="text" placeholder="fdg"  class="form-control" [(ngModel)]="subscription_new.fK_Subscriber_No"   formControlName="NO_er_id_2" (change)="onID_er_Change()"  readonly="readonly">
+                <span style="color: red;" *ngIf=" NO_er_id_2 && NO_er_id_2.invalid && NO_er_id_2.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">القراءة السابقة</label>
+            </td>
+            <td>
+                <input type="number" placeholder=""  class="form-control" [(ngModel)]="subscription_new.last_Reading_Meter"   formControlName="previous_Consumption_Amount"   readonly="readonly">
+                <span style="color: red;" *ngIf=" previous_Consumption_Amount && previous_Consumption_Amount.invalid && previous_Consumption_Amount.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">كمية الاستهلاك</label>
+            </td>
+            <td>
+                <input type="number" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.amount_Consumption_Amount"   formControlName="amount_Consumption_Amount"  readonly="readonly">
+                <span style="color: red;" *ngIf=" amount_Consumption_Amount && amount_Consumption_Amount.invalid && amount_Consumption_Amount.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">هل يوجد صرف صحي</label>
+            </td>        <td>
+            <input type="text" placeholder=""  class="form-control" [(ngModel)]="subscription_new.is_There_Sanitation"   formControlName="is_There_Sanitation" readonly="readonly" >
+            <span style="color: red;" *ngIf=" is_There_Sanitation && is_There_Sanitation.invalid && is_There_Sanitation.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label  class="label form-label">قيمة رسوم الخدمة</label>
+        </td>        <td>
+        <input type="number" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.service_Free"   formControlName="service_Free" (change)="OnChanged_ServiceFree()" >
+        <span style="color: red;" *ngIf=" service_Free && service_Free.invalid && service_Free.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label   class="label form-label">قيمة إستهلاك المياه</label>
+        </td>        <td>
+        <input type="number" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.consumption_Value"   formControlName="consumption_Value"  readonly="readonly">
+        <span style="color: red;" *ngIf=" consumption_Value && consumption_Value.invalid && consumption_Value.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label   class="label form-label">قيمة الفاتورة</label>
+        </td>        <td>
+        <input type="number" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.total_Invoice"   formControlName="total_Invoice" (change)="OnChanged_Total_Invoicewithout()" readonly="readonly">
+        <span style="color: red;" *ngIf=" total_Invoice && total_Invoice.invalid && total_Invoice.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+       
+    </table>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <table class="mt-3">
+        <tr>
+            <td>
+                <label   class="label form-label">تاريخ الفاتورة</label>
+            </td>        <td>
+            <input type="date" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.date"   formControlName="date"  >
+            <span style="color: red;" *ngIf=" date && date.invalid && date.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">إلى تاريخ</label>
+            </td>        <td>
+            <input type="text" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.to"   formControlName="to"  readonly="readonly">
+            <span style="color: red;" *ngIf=" to && to.invalid && to.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label   class="label form-label">الأسم</label>
+            </td>        <td>
+            <input type="text" placeholder=""  class="form-control" [(ngModel)]="subscriper_new.name"   formControlName="name"  readonly="readonly" >
+            <span style="color: red;" *ngIf=" name && name.invalid && name.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr>
+            <td>
+                <label  class="label form-label">القراءة الحالية</label>
+            </td>        <td>
+            <input type="number" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.current_Consumption_Amount" (change)="on_current_water_change()"  formControlName="current_Consumption_Amount"  >
+            <span style="color: red;" *ngIf=" current_Consumption_Amount && current_Consumption_Amount.invalid && current_Consumption_Amount.touched ">! Error this invalid input</span>
+            </td>
+        </tr>  
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr>    
+            <td>
+                <label   class="label form-label">عدد الوحدات</label>
+            </td>
+            <td>
+                <input type="number" placeholder="Enter number of units"  class="form-control" [(ngModel)]="subscription_new.unit_No" formControlName="unit_No" readonly="readonly">
+                <span style="color: red;" *ngIf=" unit_No && unit_No.invalid && unit_No.touched ">! Error this invalid input</span>
+            </td>
+        </tr>
+        <tr><br></tr>  
+        <tr>    
+            <td>
+                <label  class="label form-label">نسبة الضريبة</label>
+            </td>
+            <td>
+                <input type="number" placeholder="Enter number of units"  class="form-control" [(ngModel)]="invoiceModel_new.tax_Rate" formControlName="tax_Rate" (change)="OnChanged_TaxRate()" >
+                <span style="color: red;" *ngIf=" tax_Rate && tax_Rate.invalid && tax_Rate.touched ">! Error this invalid input</span>
+            </td>
+        </tr>
+        <tr><br></tr>  
+        <tr>    
+            <td>
+                <label   class="label form-label">استهلاك الصرف الصحي</label>
+            </td>
+            <td>
+                <input type="number" placeholder="Enter number of units"  class="form-control" [(ngModel)]="invoiceModel_new.wastewater_Consumption_Value" formControlName="wastewater_Consumption_Value" readonly="readonly">
+                <span style="color: red;" *ngIf=" wastewater_Consumption_Value && wastewater_Consumption_Value.invalid && wastewater_Consumption_Value.touched ">! Error this invalid input</span>
+            </td>
+        </tr>
+        <tr><br></tr>  
+        <tr>    
+            <td>
+                <label   class="label form-label">إجمالي الفاتورة</label>
+            </td>
+            <td>
+                <input type="number" placeholder=""  class="form-control" [(ngModel)]="invoiceModel_new.total_Bill" formControlName="total_Bill" readonly="readonly">
+                <span style="color: red;" *ngIf=" total_Bill && total_Bill.invalid && total_Bill.touched ">! Error this invalid input</span>
+            </td>
+        </tr>
+        <tr><br></tr>  
+        
+        <tr>      
+            <td>
+                <label  class="label form-label">ملاحظات</label>
+            </td>
+            <td>
+                <input type="text" placeholder="Enter your Reasons" name="Reasons" id="Reasons" class="form-control" [(ngModel)]="invoiceModel_new.reasons" >
+            </td>
+        </tr>
+        <tr><br></tr>
+
+    </table>
+    </div>
+
+    <div class=" mt-1 "> 
+
+        <button [disabled]="registerForm.invalid"  type="submit" class="btn btn-primary ">حفظ</button>
+
+        <button type="button" (click)="End()" class="btn btn-primary ">إنهاء</button>
+   
+    </div>
+    
+    </form>
+    </ng-container>
+    
+    <!-- [disabled]="registerForm.invalid" -->
+    <!-- 
+         <span style="color: red;" *ngIf=" reasons_form && reasons_form.invalid && reasons_form.touched ">! Error this invalid input</span>
+     -->
+    
+     <!-- <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Default checkbox
+        </label>
+      </div> -->
+    
+      <!-- 
+        <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            نوع العقار
+        </button>
+        <ul class="dropdown-menu" [(ngModel)]="subscription_new.fk_Subscriber_No"  formControlName="fk_Real_Estate_Types_id">
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        </ul>
+      </div>
+     -->
+    
+     <!-- 
+        <select #rate ngModel="hr">
+        <option selected value="hr">hr</option>
+        <option value="yr">yr</option>
+    </select>
+    
+    <p *ngIf="rate.value == 'hr'">hr</p> 
+    <p *ngIf="rate.value == 'yr'">yr</p>
+    
+    {{rate.value}}
+     -->

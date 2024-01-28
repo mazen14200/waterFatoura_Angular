@@ -1,0 +1,40 @@
+
+<ng-container *ngIf="invoices">
+
+    <table class="table table-success table-striped-columns">
+
+        <thead class=" table table-success">
+            <td >م</td>
+            <td >رقم الفاتورة</td>
+            <td >رقم الاشتراك</td>
+            <td>رقم المشترك</td>
+            <!-- <td>&nbsp; الاسم &nbsp;</td> -->
+            <td>تاريخ الفاتورة</td>
+            <td>الاستهلاك السابق</td>
+            <td>الاستهلاك الحالي</td>
+            <td>كمية الاستهلاك</td>
+            <td>مجموع الفاتورة</td>
+            <td>اجمالي الفاتورة</td>
+        </thead>
+        <tbody>
+       <tr *ngFor="let item of invoices , let i=index">
+         <td>{{i + 1}}</td> 
+        <td *ngIf="item.nO_Invoice !=undefined">{{item.nO_Invoice}} </td>
+        <td *ngIf="item.fK_Subscription_No_sp_Date !=undefined" >{{item.fK_Subscription_No_sp_Date}} </td>
+        <td *ngIf="item.fK_Subscriber_No !=undefined"> {{item.fK_Subscriber_No }} </td>
+        <!-- <td>{{item}} </td> -->
+        <td>{{item.date}} </td>
+        <td>{{item.previous_Consumption_Amount}} </td>
+        <td>{{item.current_Consumption_Amount}} </td>
+        <td>{{item.amount_Consumption_Amount}} </td>
+        <td>{{item.total_Invoice}} </td>
+        <td>{{item.total_Bill}} </td>
+       
+       </tr>
+    </tbody>
+    </table>
+
+    
+
+    </ng-container>
+ 

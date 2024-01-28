@@ -1,0 +1,227 @@
+
+<!--
+<ng-container *ngIf="subscriper_new">
+
+</ng-container> -->
+
+<!-- <form #ngForm (ngSubmit)="onSubmit()" >
+<div class="mt-2 me-3 ">
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="Id" name="Id" id="Id" class="label form-label">رقم الهوية</label>
+    </div>
+        <input type="text" placeholder="Enter your ID" name="Id" id="Id" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="name" name="name" id="name" class="label form-label">الأسم</label>
+    </div>
+        <input type="text" placeholder="Enter your name" name="name" id="name" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="City" name="City" id="City" class="label form-label">المدينة</label>
+    </div>
+        <input type="text" placeholder="Enter your City" name="City" id="City" class="form-control" >
+    </div>
+    <div class="mt-4 ms-20">     
+        <button type="submit" class="btn btn-primary ">إضافة</button>
+
+    </div>
+</div>
+-->
+<!--second-->
+<!--second-->
+<!--
+<div class="mt-2 me-3 ">
+    <div class="mt-3">
+        <label for="Area" name="Area" id="Area" class="label form-label">&nbsp;&nbsp; العنوان</label>
+        <input type="text" placeholder="Enter your Area" name="Area" id="Area" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <label for="Mobile" name="Mobile" id="Mobile" class="label form-label">&nbsp;&nbsp; الهاتف</label>
+        <input type="text" placeholder="Enter your Mobile" name="Mobile" id="Mobile" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <label for="Reasons" name="Reasons" id="Reasons" class="label form-label">ملاحظات</label>
+        <input type="text" placeholder="Enter your Reasons" name="Reasons" id="Reasons" class="form-control" >
+    </div>
+</div>
+
+</form> 
+-->
+<ng-container *ngIf="RETypes$ | async as RETypes  ">
+
+<form id="form" [formGroup]="registerForm" (ngSubmit)="Onsubmit()">
+<div>
+<table class="mt-3">
+    <tr>
+        <td>
+            <label for="no_Subscription"  class="label form-label">رقم الاشتراك</label>
+        </td>
+        <td>
+            <input type="text" placeholder=""  class="form-control" [(ngModel)]="NO_sh_id" #myID formControlName="no_Subscription" readonly="readonly" >
+            <span style="color: red;" *ngIf=" no_Subscription && no_Subscription.invalid && no_Subscription.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="fk_Subscriber_No"  class="label form-label">رقم هوية المشترك</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your ID"  class="form-control" (change) ="onIDChange()" [(ngModel)]="subscription_new.fK_Subscriber_No"  formControlName="fk_Subscriber_No">
+            <span style="color: red;" *ngIf=" fk_Subscriber_No && fk_Subscriber_No.invalid && fk_Subscriber_No.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="name" name="name" id="name" class="label form-label">الأسم</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your name" name="name" id="name" class="form-control" [(ngModel)]="subscriper_new.name" formControlName="name_form" readonly="readonly">
+            <span style="color: red;" *ngIf=" name_form && name_form.invalid && name_form.touched ">! Error this invalid input</span>
+
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="City" name="City" id="City" class="label form-label">المدينة</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your City" name="City" id="City" class="form-control" [(ngModel)]="subscriper_new.city" formControlName="city_form" readonly="readonly">
+            <span style="color: red;" *ngIf=" city_form && city_form.invalid && city_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="Area" name="Area" id="Area" class="label form-label"> العنوان</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your Area" name="Area" id="Area" class="form-control" [(ngModel)]="subscriper_new.area" formControlName="area_form" readonly="readonly">
+            <span style="color: red;" *ngIf=" area_form && area_form.invalid && area_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="Mobile" name="Mobile" id="Mobile" class="label form-label"> الهاتف</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your Mobile" name="Mobile" id="Mobile" class="form-control" [(ngModel)]="subscriper_new.mobile" formControlName="mobile_form" readonly="readonly">
+            <span style="color: red;" *ngIf=" mobile_form && mobile_form.invalid && mobile_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+</table>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<table class="mt-3">
+    <tr>    
+        <td>
+            <label for="unit_No"  class="label form-label">عدد الوحدات</label>
+        </td>
+        <td>
+            <input type="number" placeholder="Enter number of units"  class="form-control" [(ngModel)]="subscription_new.unit_No" formControlName="unit_No">
+            <span style="color: red;" *ngIf=" unit_No && unit_No.invalid && unit_No.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>   
+    <tr>    
+        <td>
+            <label for="is_There_Sanitation"  class="label form-label">هل يوجد صرف صحي</label>
+        </td>
+        <td>
+            <input type="checkbox" class="form-check-input"  name="is_There_Sanitation" id="is_There_Sanitation" [(ngModel)]="subscription_new.is_There_Sanitation" formControlName="is_There_Sanitation">
+            <span style="color: red;" *ngIf=" is_There_Sanitation && is_There_Sanitation.invalid && is_There_Sanitation.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+
+    <tr>   
+        <td>
+            <label for="last_Reading_Meter"  class="label form-label">اخر قراءة للعداد</label>
+        </td>
+        <td>
+            <input type="number" placeholder="Enter last Reading Meter"  class="form-control" [(ngModel)]="subscription_new.last_Reading_Meter" formControlName="last_Reading_Meter">
+            <span style="color: red;" *ngIf=" last_Reading_Meter && last_Reading_Meter.invalid && last_Reading_Meter.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        
+        <td>
+            <label for="Reasons" name="Reasons" id="Reasons" class="label form-label">ملاحظات</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your Reasons" name="Reasons" id="Reasons" class="form-control" [(ngModel)]="subscription_new.reasons" formControlName="reasons_form">
+            <span style="color: red;" *ngIf=" reasons_form && reasons_form.invalid && reasons_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="fk_Real_Estate_Types_id"  class="label form-label">نوع العقار</label>
+        </td>
+        <td>
+            <div class="btn-group" role="group">
+                <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    نوع العقار
+                </button> -->
+                <select for="fk_Real_Estate_Types_id"   [(ngModel)]="subscription_new.fK_Real_Estate_Types_id" class="form-control" name="ff" id="ff" (change)="chanedSelect()" >
+                    <option value="null" disabled >Select Estate Type</option>
+                    <option *ngFor="let one of RETypes"  [ngValue]="one.code" >{{one.name}}</option>
+                </select> 
+              </div>
+              <!-- <span style="color: red;" *ngIf=" fk_Real_Estate_Types_id && fk_Real_Estate_Types_id.invalid && fk_Real_Estate_Types_id.touched ">! Error this invalid input</span> -->
+
+        </td>
+    </tr>  
+    <tr><br></tr>
+</table>
+</div>
+<div class="mt-4; ">     
+    <button [disabled]="registerForm.invalid"  type="submit" class="btn btn-primary ">إضافة</button>
+
+</div>
+
+</form>
+</ng-container>
+
+<!-- [disabled]="registerForm.invalid" -->
+<!-- 
+     <span style="color: red;" *ngIf=" reasons_form && reasons_form.invalid && reasons_form.touched ">! Error this invalid input</span>
+ -->
+
+ <!-- <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Default checkbox
+    </label>
+  </div> -->
+
+  <!-- 
+    <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        نوع العقار
+    </button>
+    <ul class="dropdown-menu" [(ngModel)]="subscription_new.fk_Subscriber_No"  formControlName="fk_Real_Estate_Types_id">
+      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+ -->
+
+ <!-- 
+    <select #rate ngModel="hr">
+    <option selected value="hr">hr</option>
+    <option value="yr">yr</option>
+</select>
+
+<p *ngIf="rate.value == 'hr'">hr</p> 
+<p *ngIf="rate.value == 'yr'">yr</p>
+
+{{rate.value}}
+ -->

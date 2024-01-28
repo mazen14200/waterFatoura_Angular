@@ -1,0 +1,135 @@
+
+<!--
+<ng-container *ngIf="subscriper_new">
+
+</ng-container> -->
+
+<!-- <form #ngForm (ngSubmit)="onSubmit()" >
+<div class="mt-2 me-3 ">
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="Id" name="Id" id="Id" class="label form-label">رقم الهوية</label>
+    </div>
+        <input type="text" placeholder="Enter your ID" name="Id" id="Id" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="name" name="name" id="name" class="label form-label">الأسم</label>
+    </div>
+        <input type="text" placeholder="Enter your name" name="name" id="name" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <div class="ms-2">
+        <label for="City" name="City" id="City" class="label form-label">المدينة</label>
+    </div>
+        <input type="text" placeholder="Enter your City" name="City" id="City" class="form-control" >
+    </div>
+    <div class="mt-4 ms-20">     
+        <button type="submit" class="btn btn-primary ">إضافة</button>
+
+    </div>
+</div>
+-->
+<!--second-->
+<!--second-->
+<!--
+<div class="mt-2 me-3 ">
+    <div class="mt-3">
+        <label for="Area" name="Area" id="Area" class="label form-label">&nbsp;&nbsp; العنوان</label>
+        <input type="text" placeholder="Enter your Area" name="Area" id="Area" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <label for="Mobile" name="Mobile" id="Mobile" class="label form-label">&nbsp;&nbsp; الهاتف</label>
+        <input type="text" placeholder="Enter your Mobile" name="Mobile" id="Mobile" class="form-control" >
+    </div>
+    <div class="mt-3">
+        <label for="Reasons" name="Reasons" id="Reasons" class="label form-label">ملاحظات</label>
+        <input type="text" placeholder="Enter your Reasons" name="Reasons" id="Reasons" class="form-control" >
+    </div>
+</div>
+
+</form> 
+-->
+<form id="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div>
+<table class="mt-3">
+    <tr>
+        <td>
+            <label for="Id" name="Id" id="Id" class="label form-label">رقم الهوية</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your ID"  class="form-control" (change) ="onChangeID()" [(ngModel)]="id" #myID formControlName="id_form">
+            <span style="color: red;" *ngIf=" id_form && id_form.invalid && id_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>  
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="name" name="name" id="name" class="label form-label">الأسم</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your name" name="name" id="name" class="form-control" [(ngModel)]="subscriper_new.name" formControlName="name_form">
+            <span style="color: red;" *ngIf=" name_form && name_form.invalid && name_form.touched ">! Error this invalid input</span>
+
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="City" name="City" id="City" class="label form-label">المدينة</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your City" name="City" id="City" class="form-control" [(ngModel)]="subscriper_new.city" formControlName="city_form">
+            <span style="color: red;" *ngIf=" city_form && city_form.invalid && city_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+
+</table>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<table class="mt-3">
+    <tr>
+        <td>
+            <label for="Area" name="Area" id="Area" class="label form-label"> العنوان</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your Area" name="Area" id="Area" class="form-control" [(ngModel)]="subscriper_new.area" formControlName="area_form">
+            <span style="color: red;" *ngIf=" area_form && area_form.invalid && area_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        <td>
+            <label for="Mobile" name="Mobile" id="Mobile" class="label form-label"> الهاتف</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your Mobile" name="Mobile" id="Mobile" class="form-control" [(ngModel)]="subscriper_new.mobile" formControlName="mobile_form">
+            <span style="color: red;" *ngIf=" mobile_form && mobile_form.invalid && mobile_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+        
+        <td>
+            <label for="Reasons" name="Reasons" id="Reasons" class="label form-label">ملاحظات</label>
+        </td>
+        <td>
+            <input type="text" placeholder="Enter your Reasons" name="Reasons" id="Reasons" class="form-control" [(ngModel)]="subscriper_new.reasons" formControlName="reasons_form">
+            <span style="color: red;" *ngIf=" reasons_form && reasons_form.invalid && reasons_form.touched ">! Error this invalid input</span>
+        </td>
+    </tr>
+    <tr><br></tr>
+
+</table>
+</div>
+<div class="mt-4; ">     
+    <button [disabled]="registerForm.invalid"  type="submit" class="btn btn-primary ">إضافة</button>
+
+</div>
+
+</form>
+
+<!-- [disabled]="registerForm.invalid" -->
+<!-- 
+     <span style="color: red;" *ngIf=" reasons_form && reasons_form.invalid && reasons_form.touched ">! Error this invalid input</span>
+ -->

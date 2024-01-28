@@ -1,0 +1,40 @@
+form{
+
+}
+form div div{
+   
+    display: flex;
+}
+form div{
+   
+    direction: rtl;
+    /* flex-direction: column; */
+    align-content: flex-end;
+    align-self: end;
+    display: -webkit-flex;
+    display: flex;
+}
+label{
+    justify-content: center;
+    color: rgb(12, 67, 116);
+
+}
+input{
+    justify-content: center;
+    color: rgb(12, 67, 116);
+
+}
+
+button{
+    position:relative;
+    top: 10px; 
+    margin: auto; /* اهم خاصية لضبطه ف المنتصف*/
+    align-self: center;
+    width: 60;
+    height: 30;
+    font-size: 22px;
+}
+table{
+
+    margin-right: 3%;
+}
